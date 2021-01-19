@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>キャプティブポータルを用いたフィッシング</title>
+	<meta name="description" content="偽のアクセスポイントを設置し、接続してきた利用者に対し個人情報の入力を求め、さらに通信内容も盗聴する">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="wrapper site-header__wrapper">
+            <h1>無線LANに対する攻撃の検証及び対策</h1>
+            <nav class="nav">
+                <a class="nav__toggle">
+                <ul>
+                    <a href="wep.html"><img src="img/wepkey.gif" alt="WEPキーの解読"></a>
+                    <a href="dic.html"><img src="img/dic.gif" alt="WPA2に対する辞書攻撃"></a>
+                    <a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a>
+                </ul>
+                <ul>
+                    <a href="index.html"><img src="img/top.gif" alt="TOPページへ"></a>
+                    <a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a>
+                    <a href="ex.html"><img src="img/ex.gif" alt="補足"></a>
+                </ul>
+            </nav>
+        </div>
+        </header>
+        <h1>キャプティブポータル</h1>
+        <h2>検証内容</h2>
+        <p><!--検証内容ここから-->
+            偽のAPを設置し、<span style='font-weight: 600;'>接続してきた端末に対し偽の認証ページを表示し、個人情報を入力させる。</span><br>
+            具体的な手法としては、「Wi-fi Pumpkin」というツールを用いて、偽のAPを<span style='font-weight: 600;'>実在する公衆無線LANに似たssid</span>で設置する。<br>
+	    <a href="img/capt/captive.png" data-lightbox="group"><img src="img/capt/captive.png" width="300" alt="キャプティブポータル起動"></a><br>
+            今回の偽装先は、「docomo0000」及び「docomo0001」とし、ssidは「docomo0002」とした。<br>
+            それに伴い入力させる個人情報は偽装先で求められる「d アカウントID」と「d Wi-Fiパスワード」とした。<br>
+            検証用の端末で偽のAPに接続すると、認証画面が表示される。<br>
+            この際、表示させる認証画面は<span style='font-weight: 600;'>本物の認証画面に似せた作りにする。</span><br>
+	    <span style='font-weight: 600;'>〇本物</span><a href="img/capt/genuine.gif" data-lightbox="group" alt="本物の認証画面"><img src="img/capt/genuine.gif" width="150"></a>
+            <span style='font-weight: 600;'>✖偽物</span><a href="img/capt/fake.png" data-lightbox="group" alt="偽物の認証画面"><img src="img/capt/fake.png" width="310"></a><br>
+	    <span style='font-size: 60%;'>引用元：https://www.nttdocomo.co.jp/service/d_wifi/usage_smt.html?icid=CRP_SER_d_wifi_to_CRP_SER_d_wifi_usage_smt&d=1&p=3,6</span><br><br>
+            端末側で認証画面のフォームにIDとパスワードを入力し、偽のAPがそれを取得する。<br>
+	    <a href="img/capt/result.png" data-lightbox="group"><img src="img/capt/result.png" width="300" alt="入力されたIDとパスワードを盗聴"></a><br>
+        </p><!--検証内容ここまで-->
+        <h2>対策</h2>
+        <p><!--対策ここから-->
+            <ul>
+                <li><span style='font-weight: 600;'>怪しい名前のAPに接続しない。</span></li>
+                <li><span style='font-weight: 600;'>いつもと違うことがないか確認する。(方法や画面、URL等)</span><br>//本来docomo0000系の使い方は設定用のWebサイトにアクセスして設定を行い、接続できるようになる。</li>
+            </ul>
+        </p><!--対策ここまで-->
+        <a href="index.html">戻る</a>
+        <div id="page_top"><a href="#"></a></div>
+        <script src="header-15.js"></script>
+    </body>
+</html>

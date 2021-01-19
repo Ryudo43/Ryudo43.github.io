@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>WEPキーの解読</title>
+	<meta name="description" content="危殆化した暗号化方式の一つであるWEPを解読し、他人の送信した通信内容を盗み見ることが可能">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="wrapper site-header__wrapper">
+            <h1>無線LANに対する攻撃の検証及び対策</h1>
+            <nav class="nav">
+                <a class="nav__toggle">
+                <ul>
+                    <a href="index.html"><img src="img/top.gif" alt="TOPページへ"></a>
+                    <a href="dic.html"><img src="img/dic.gif" alt="WPA2に対する辞書攻撃"></a>
+                    <a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a>
+                </ul>
+            <ul>
+                <a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a>
+                <a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a>
+                <a href="ex.html"><img src="img/ex.gif" alt="補足"></a>
+            </ul>
+            </nav>
+        </div>
+        </header>
+        <h1>WEPキーの解読</h1>
+        <h2>検証内容</h2>
+        <p><!--検証内容ここから-->
+            認証方式をWEPに設定したAPの、WEPキーを解析する。<br>
+            具体的な手法としては、<span style='font-weight: 600;'>解析対象のAPと無線通信を行っている端末間の通信を傍受し、それを解読に使用する。</span><br>
+            数個集めればよいというわけでもなく、とにかく<span style='font-weight: 600;'>大量の通信を傍受しなければならない</span>ので、今回はPC2台で動画を視聴し、その通信を傍受した。<br>
+            結果解析するまでに<span style='font-weight: 600;'>かかった時間は1:35:50</span>、集めた解析に必要な<span style='font-weight: 600;'>データは85,841個</span>、<span style='font-weight: 600;'>ツールはAircrack-ng 1.6</span>を使用した。<br>
+            <a href="img/wep/1.png" data-lightbox="group"><img src="img/wep/1.png" width="300" alt="wep解析完了"></a>
+            <br>
+            WEPキー、すなわちWi-Fiのパスワードが判明した場合、Wi-Fiにただ乗りすることが可能になる上、<span style='font-weight: 600;'>暗号化されていない通信(http等)ならどんな通信を行っているのかを見ることができる。</span><br>
+            今回は解析が完了した後、WiresharkにWEPキーを設定し、解析対象のAPと無線通信を行っている端末のhttp通信を復号し、postデータを吸い出した。<br>
+            <a href="img/wep/2.png" data-lightbox="group"><img src="img/wep/2.png" width="300" alt="postデータ吸出し"></a>
+
+        </p><!--検証内容ここまで-->
+        <h2>対策</h2>
+        <p><!--対策ここから-->
+            自宅のルーター(AP)の認証方式がWEPの場合、WEPより強い認証方式(WPA等)または暗号化方式(AES、TKIP等)に変更する。<br>
+            フリーWi-Fiの認証方式がWEPだった場合、それを使用しない。<br><br>
+            〇今自分が接続しているWi-Fiの認証方式、または暗号化方式を調べる方法<br>
+            　Windows10なら、タスクバーの右下にあるWi-Fiマーク(電波みたいなマーク)をクリックして、プロパティという文字をクリックすれば「セキュリティの種類」という欄に認証方式が書いてあります。<br>
+            ①<a href="img/wep/8.png" data-lightbox="group"><img src="img/wep/8.png" width="300" alt="windows10の接続しているwifiの暗号化方式の設定確認1"></a><br>
+            ②<a href="img/wep/9.png" data-lightbox="group"><img src="img/wep/9.png" width="300" alt="windows10の接続しているwifiの暗号化方式の設定確認2"></a><br>
+            ③<a href="img/wep/10.png" data-lightbox="group"><img src="img/wep/10.png" width="300" alt="windows10の接続しているwifiの暗号化方式の設定確認3"></a><br><br>
+            　androidなら、設定アプリからネットワークとインターネットを選択し、Wi-Fiを選択、そして自分が使っているWi-Fiの歯車マークをタップすると、「セキュリティ」という欄に書いてあります。<br>
+            ①<a href="img/wep/3.png" data-lightbox="group"><img src="img/wep/3.png" width="165" alt="androidの接続しているwifiの暗号化方式の設定確認1"></a>
+            ②<a href="img/wep/4.png" data-lightbox="group"><img src="img/wep/4.png" width="150" alt="androidの接続しているwifiの暗号化方式の設定確認2"></a>
+            ③<a href="img/wep/5.png" data-lightbox="group"><img src="img/wep/5.png" width="150" alt="androidの接続しているwifiの暗号化方式の設定確認3"></a>
+            ④<a href="img/wep/6.png" data-lightbox="group"><img src="img/wep/6.png" width="150" alt="androidの接続しているwifiの暗号化方式の設定確認4"></a><br><br>
+            ルーターの認証方式、または暗号化方式を変更する方法はメーカーによって異なります。<br>
+            説明書をよく見て設定しましょう。
+
+        </p><!--対策ここまで-->
+        <a href="index.html">戻る</a>
+        <div id="page_top"><a href="#"></a></div>
+        <script src="header-15.js"></script>
+    </body>
+</html>

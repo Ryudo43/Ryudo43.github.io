@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>Wiフィッシングによる盗聴</title>
+	<meta name="description" content="偽のアクセスポイントを設置することによって、それに接続した利用者の通信内容を盗聴する">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="wrapper site-header__wrapper">
+            <h1>無線LANに対する攻撃の検証及び対策</h1>
+            <nav class="nav">
+                <a class="nav__toggle">
+                <ul>
+                    <a href="wep.html"><img src="img/wepkey.gif" alt="WEPキーの解読"></a>
+                    <a href="dic.html"><img src="img/dic.gif" alt="WPA2に対する辞書攻撃"></a>
+                    <a href="index.html"><img src="img/top.gif" alt="TOPページへ"></a>
+                </ul>
+                <ul>
+                    <a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a>
+                    <a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a>
+                    <a href="ex.html"><img src="img/ex.gif" alt="補足"></a>
+                </ul>
+            </nav>
+        </div>
+        </header>
+        <h1>Wiフィッシングによる盗聴</h1>
+        <h2>検証内容</h2>
+        <p><!--検証内容ここから-->
+            APを設置し、それに接続してきた端末の行う通信を盗聴する。<br>
+            具体的な手法としては、「Wi-fi Pumpkin」というツールを用いて偽のAPを設置する。<br>
+	    <a href="img/wif/wi_pump.png" data-lightbox="group"><img src="img/wif/wi_pump.png" width="300" alt="wifi pumpkin起動"></a><br>
+            その時のssidは他のAPに似せたssidにすることも考えられたが、今回は<span style='font-weight: 600;'>検証用のAPと同じssidにし(Air_Station_Pro1)、同じ認証方式、同じ事前共有キーを設定した。</span><br>
+            この場合、同じssidのAPが二つ存在することとなり、<span style='font-weight: 600;'>ローミングの積極性に基づいた接続がなされるようになる。</span><br>
+            今回は<span style='font-weight: 600;'>意図的に検証用のAPのシグナルを弱くすることにより、端末を偽のAPに接続させた。</span><br>
+            接続した端末でhttp通信を行い、偽のAPがそれを盗聴し、postデータを読みだした。<br>
+            <a href="img/wif/1.png" data-lightbox="group"><img src="img/wif/1.png" width="300" alt="偽のアクセスポイントで通信データを盗聴"></a>
+	    <a href="img/wif/wi_result2.png" data-lightbox="group"><img src="img/wif/wi_result2.png" width="300" alt="wiresharkでpostデータを確認"></a><br>
+        </p><!--検証内容ここまで-->
+        <h2>対策</h2>
+        <p><!--対策ここから-->
+            <ul>
+                <li><span style='font-weight: 600;'>怪しい名前のAPに接続しない。(本物のルーターによく似た名前になっているものもあります)</li>
+                <li><span style='font-weight: 600;'>https通信を利用する</span><br><p><span style='font-weight: 600;'>
+                  〇https通信</span><a href="img/wif/https.png" data-lightbox="group"><img src="img/wif/https.png" width="300" alt="https通信"></a></p><br><p><span style='font-weight: 600;'>
+                  ✖http通信</span><a href="img/wif/http.png" data-lightbox="group"><img src="img/wif/http.png" width="300" alt="http通信"></a><br>URL欄に鍵のマークがついているのが暗号化されている証</p></li>
+                <li><span style='font-weight: 600;'>重要なデータを送信しない<br>(パスワード、ID等)
+                    (ゲームアプリを起動しただけでも情報が送信される場合もあります)</span></li>
+            </ul>
+        </p><!--対策ここまで-->
+        <a href="index.html">戻る</a>
+        <div id="page_top"><a href="#"></a></div>
+        <script src="header-15.js"></script>
+    </body>
+</html>
