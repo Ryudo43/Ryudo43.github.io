@@ -27,11 +27,11 @@ header {
       .brand {
         margin-bottom: 1rem; } }
   .site-header {
+    min-width: 289px;
     position: relative;
     background-color: #def7ff; }
 
   .site-header__wrapper {
-    min-width: 289px;
     padding-top: 1rem;
     padding-bottom: 1rem; }
     @media (min-width: 700px) {
