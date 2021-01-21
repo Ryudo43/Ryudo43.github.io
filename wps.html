@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <title>WPS攻撃の検証</title>
-	<meta name="description" content="wpsは有効になっているだけで攻撃を受け付ける危険な機能だが、初期設定で有効になっているルーターも多い">
+	<meta name="description" content="">
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" href="img/favicon.ico">
@@ -21,10 +21,13 @@
                     <a href="dic.html"><img src="img/dic.gif" alt="WPA2に対する辞書攻撃"></a>
                     <a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a>
                 </ul>
-                <ul>
+            <ul>
                 <a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a>
-                <a href="index.html"><img src="img/top.gif" alt="TOPページへ"></a>
+                <img src="img/wps.gif" alt="WPSの解析" style='opacity:0.3;'>
                 <a href="ex.html"><img src="img/ex.gif" alt="補足"></a>
+            </ul>
+            <ul>
+                <a href="index.html"><img src="img/top.gif" alt="トップページ"></a>
             </ul>
             </nav>
         </div>
@@ -35,11 +38,11 @@
             認証方式をWPA-PSK、WPAタイプをWPA2-PSK、暗号化方式をAESにしたAPに対し、WPS Pixie-Dust攻撃を行い、事前共有キーを解析する。<br>
             具体的な手法としては、検証用APのWPS機能を有効化し、wifite2 2.5.5を用いて解析を行う。<br>
             <span style='font-weight: 600;'>解析は10秒程度</span>で完了した。<br>
-            <a href="img/wps/1.png" data-lightbox="group"><img src="img/wps/1.png" width="300" alt="wps解析完了"></a><br>
+            <a href="img/wps/pixie_dust_attack.png" data-lightbox="group"><img src="img/wps/pixie_dust_attack.png" width="300" alt="wps解析完了"></a><br>
             念のため、WPS PINと事前共有キーを変更(事前共有キーはランダムな数字12桁)してもう一度解析を行ったが、変わらず解析は10秒程度で完了した。<br>
-            <a href="img/wps/2.png" data-lightbox="group"><img src="img/wps/2.png" width="300" alt="wps解析完了2"></a><br>
+            <a href="img/wps/pixie_dust_attack2.png" data-lightbox="group"><img src="img/wps/pixie_dust_attack2.png" width="300" alt="wps解析完了2"></a><br>
             なお、今回使用したAPの<span style='font-weight: 600;'>WPSのバージョンは2.0</span>である。<br>
-            <a href="img/wps/3.png" data-lightbox="group"><img src="img/wps/3.png" width="300" alt="WPSバージョン"></a><br>
+            <a href="img/wps/wps_version.png" data-lightbox="group"><img src="img/wps/wps_version.png" width="300" alt="WPSバージョン"></a><br>
 	    今回は解析が完了した後、Wiresharkにwpa/pskキーを設定し、解析対象のAPと無線通信を行っている端末のhttp通信を復号し、postデータを吸い出した。
         </p><!--検証内容ここまで-->
         <h2>対策</h2>
@@ -48,7 +51,7 @@
                 <li>
                     <span style='font-weight: 600;'>WPS機能をオフにする<br>
                         //ルーターの設定の仕方は機種によって異なります。<br>
-                        　説明書を見ながら設定しましょう。</span>
+                        　説明書を見ながら設定しましょう。</span>       
                 </li>
             </ul>
         </p><!--対策ここまで-->

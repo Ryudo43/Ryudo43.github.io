@@ -17,7 +17,7 @@
             <nav class="nav">
                 <a class="nav__toggle">
                 <ul>
-                    <a href="index.html"><img src="img/top.gif" alt="TOPページへ"></a>
+                    <img src="img/wepkey.gif" alt="WEPキーの解読"  style='opacity:0.3;'>
                     <a href="dic.html"><img src="img/dic.gif" alt="WPA2に対する辞書攻撃"></a>
                     <a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a>
                 </ul>
@@ -25,6 +25,9 @@
                 <a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a>
                 <a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a>
                 <a href="ex.html"><img src="img/ex.gif" alt="補足"></a>
+            </ul>
+            <ul>
+                <a href="index.html"><img src="img/top.gif" alt="トップページ"></a>
             </ul>
             </nav>
         </div>
@@ -36,11 +39,12 @@
             具体的な手法としては、<span style='font-weight: 600;'>解析対象のAPと無線通信を行っている端末間の通信を傍受し、それを解読に使用する。</span><br>
             数個集めればよいというわけでもなく、とにかく<span style='font-weight: 600;'>大量の通信を傍受しなければならない</span>ので、今回はPC2台で動画を視聴し、その通信を傍受した。<br>
             結果解析するまでに<span style='font-weight: 600;'>かかった時間は1:35:50</span>、集めた解析に必要な<span style='font-weight: 600;'>データは85,841個</span>、<span style='font-weight: 600;'>ツールはAircrack-ng 1.6</span>を使用した。<br>
-            <a href="img/wep/1.png" data-lightbox="group"><img src="img/wep/1.png" width="300" alt="wep解析完了"></a>
+            <a href="img/wep/key_crack.png" data-lightbox="group"><img src="img/wep/key_crack.png" width="300" alt="wep解析完了"></a>
             <br>
             WEPキー、すなわちWi-Fiのパスワードが判明した場合、Wi-Fiにただ乗りすることが可能になる上、<span style='font-weight: 600;'>暗号化されていない通信(http等)ならどんな通信を行っているのかを見ることができる。</span><br>
             今回は解析が完了した後、WiresharkにWEPキーを設定し、解析対象のAPと無線通信を行っている端末のhttp通信を復号し、postデータを吸い出した。<br>
-            <a href="img/wep/2.png" data-lightbox="group"><img src="img/wep/2.png" width="300" alt="postデータ吸出し"></a>
+            <a href="img/wep/wireshark_1.png" data-lightbox="group"><img src="img/wep/wireshark_1.png" width="300" alt="postデータ吸出し"></a>
+            <a href="img/wep/wireshark_2.png" data-lightbox="group"><img src="img/wep/wireshark_2.png" width="300" alt="postデータ吸出し"></a>
 
         </p><!--検証内容ここまで-->
         <h2>対策</h2>
@@ -49,14 +53,14 @@
             フリーWi-Fiの認証方式がWEPだった場合、それを使用しない。<br><br>
             〇今自分が接続しているWi-Fiの認証方式、または暗号化方式を調べる方法<br>
             　Windows10なら、タスクバーの右下にあるWi-Fiマーク(電波みたいなマーク)をクリックして、プロパティという文字をクリックすれば「セキュリティの種類」という欄に認証方式が書いてあります。<br>
-            ①<a href="img/wep/8.png" data-lightbox="group"><img src="img/wep/8.png" width="300" alt="windows10の接続しているwifiの暗号化方式の設定確認1"></a><br>
-            ②<a href="img/wep/9.png" data-lightbox="group"><img src="img/wep/9.png" width="300" alt="windows10の接続しているwifiの暗号化方式の設定確認2"></a><br>
-            ③<a href="img/wep/10.png" data-lightbox="group"><img src="img/wep/10.png" width="300" alt="windows10の接続しているwifiの暗号化方式の設定確認3"></a><br><br>
+            ①<a href="img/wep/windows_setting1.png" data-lightbox="group"><img src="img/wep/windows_setting1.png" width="300" alt="windows10の接続しているwifiの暗号化方式の設定確認1"></a><br>
+            ②<a href="img/wep/windows_setting2.png" data-lightbox="group"><img src="img/wep/windows_setting2.png" width="300" alt="windows10の接続しているwifiの暗号化方式の設定確認2"></a><br>
+            ③<a href="img/wep/windows_setting3.png" data-lightbox="group"><img src="img/wep/windows_setting3.png" width="300" alt="windows10の接続しているwifiの暗号化方式の設定確認3"></a><br><br>
             　androidなら、設定アプリからネットワークとインターネットを選択し、Wi-Fiを選択、そして自分が使っているWi-Fiの歯車マークをタップすると、「セキュリティ」という欄に書いてあります。<br>
-            ①<a href="img/wep/3.png" data-lightbox="group"><img src="img/wep/3.png" width="165" alt="androidの接続しているwifiの暗号化方式の設定確認1"></a>
-            ②<a href="img/wep/4.png" data-lightbox="group"><img src="img/wep/4.png" width="150" alt="androidの接続しているwifiの暗号化方式の設定確認2"></a>
-            ③<a href="img/wep/5.png" data-lightbox="group"><img src="img/wep/5.png" width="150" alt="androidの接続しているwifiの暗号化方式の設定確認3"></a>
-            ④<a href="img/wep/6.png" data-lightbox="group"><img src="img/wep/6.png" width="150" alt="androidの接続しているwifiの暗号化方式の設定確認4"></a><br><br>
+            ①<a href="img/wep/android_setting1.png" data-lightbox="group"><img src="img/wep/android_setting1.png" width="165" alt="androidの接続しているwifiの暗号化方式の設定確認1"></a>
+            ②<a href="img/wep/android_setting2.png" data-lightbox="group"><img src="img/wep/android_setting2.png" width="150" alt="androidの接続しているwifiの暗号化方式の設定確認2"></a>
+            ③<a href="img/wep/android_setting3.png" data-lightbox="group"><img src="img/wep/android_setting3.png" width="150" alt="androidの接続しているwifiの暗号化方式の設定確認3"></a>
+            ④<a href="img/wep/android_setting4.png" data-lightbox="group"><img src="img/wep/android_setting4.png" width="150" alt="androidの接続しているwifiの暗号化方式の設定確認4"></a><br><br>
             ルーターの認証方式、または暗号化方式を変更する方法はメーカーによって異なります。<br>
             説明書をよく見て設定しましょう。
 

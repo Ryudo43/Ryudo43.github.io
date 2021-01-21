@@ -18,14 +18,17 @@
                 <a class="nav__toggle">
                 <ul>
                     <a href="wep.html"><img src="img/wepkey.gif" alt="WEPキーの解読"></a>
-                    <a href="index.html"><img src="img/top.gif" alt="TOPページへ"></a>
+                    <img src="img/dic.gif" alt="WPA2に対する辞書攻撃" style='opacity:0.3;'>
                     <a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a>
                 </ul>
-                <ul>
-                    <a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a>
-                    <a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a>
-                    <a href="ex.html"><img src="img/ex.gif" alt="補足"></a>
-                </ul>
+            <ul>
+                <a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a>
+                <a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a>
+                <a href="ex.html"><img src="img/ex.gif" alt="補足"></a>
+            </ul>
+            <ul>
+                <a href="index.html"><img src="img/top.gif" alt="トップページ"></a>
+            </ul>
             </nav>
         </div>
         </header>
@@ -33,14 +36,14 @@
         <h2>検証内容</h2>
         <p><!--検証内容ここから-->
             認証方式をWPA-PSK、WPAタイプをWPA2-PSK、暗号化方式をAESにしたAPに対し、辞書攻撃を行い、事前共有キーを解析する。<br>
-            <a href="img/dic/1.png" data-lightbox="group"><img src="img/dic/1.png" width="300" alt="アクセスポイントのスキャン"></a><br>
+            <a href="img/dic/key_analysis.png" data-lightbox="group"><img src="img/dic/key_analysis.png" width="300" alt="アクセスポイントのスキャン"></a><br>
             具体的な手法としては、解析対象のAPと無線通信を行っている端末間のWPAshakehandを傍受し、それを元に解析を行う。<br>
             今回は、検証時間短縮のため、すぐに思いつく設定しやすいであろうパスワードを類推した辞書ファイルを作成し、それで攻撃を行い、合致するキーが存在しない場合インターネットに存在する辞書ファイルで攻撃を行う。<br>
             結果、<span style='font-weight: 600;'>「1234567890」はすぐに思いつく設定しやすいであろうパスワードのくくりに入っており、ほんの数秒足らずで解析することができた。</span><br>
-            <a href="img/dic/2.png" data-lightbox="group"><img src="img/dic/2.png" width="300" alt="辞書攻撃が完了しパスワードを取得"></a><br>
+            <a href="img/dic/key_analysis_completed.png" data-lightbox="group"><img src="img/dic/key_analysis_completed.png" width="300" alt="辞書攻撃が完了しパスワードを取得"></a><br>
             また、インターネットに存在する辞書ファイルを閲覧したところ、「1234567890」が存在することが分かっている。<br>
             その辞書ファイルの55692行目に「1234567890」があり、検証に用いたツールは<span style='font-weight: 600;'>秒間約1,450個のキーを検証できる</span>ため、インターネットに存在する辞書ファイルで攻撃を行った場合、<span style='font-weight: 600;'>約38.4秒で解析が完了すると推測できる。</span><br>
-            <a href="img/dic/3.png" data-lightbox="group"><img src="img/dic/3.png" width="300" alt="辞書ファイル"></a><br>
+            <a href="img/dic/dictionary_data.png" data-lightbox="group"><img src="img/dic/dictionary_data.png" width="300" alt="辞書ファイル"></a><br>
             今回は解析が完了した後、Wiresharkにwpa/pskキーを設定し、解析対象のAPと無線通信を行っている端末のhttp通信を復号し、postデータを吸い出した。<br>
 	    <a href="img/dic/wpa2_result.png" data-lightbox="group"><img src="img/dic/wpa2_result.png" width="300" alt="postデータ吸出し"></a>
 
