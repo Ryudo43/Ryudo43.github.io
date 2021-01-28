@@ -9,63 +9,77 @@
   <script src="jquery.min.js"></script>
 </head>
 <body>
-  <header>
-    <h1>無線LANに対する攻撃の検証及び対策</h1>
-    <ul class="nomark">
-      <li><a href="wep.html"><img src="img/wepkey.gif" alt="WEPキーの解読"></a></li>
-      <li><a href="dic.html"><img src="img/dic.gif" alt="WPA2に対する辞書攻撃"></a></li>
-      <li><a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a></li>
-    </ul>
-    <ul class="nomark">
-      <li><a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a></li>
-      <li><a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a></li>
-      <li><a href="ex.html"><img src="img/ex.gif" alt="補足"></a></li>
-    </ul>
-    <ul class="nomark">
-      <li><img src="img/top.gif" alt="トップページ" style='opacity:0.3;'></li>
-    </ul>
-  </header>
-
-  <h2>検証を行った攻撃</h2>
-  <ul>
-    <li><a href="wep.html">WEPキーの解読</a></li>
-    <li><a href="dic.html">WPA2に対する辞書攻撃</a></li>
-    <li><a href="wi_fish.html">Wiフィッシングによる盗聴</a></li>
-    <li><a href="capt.html">キャプティブポータル</a></li>
-    <li><a href="wps.html">WPSの解析</a></li>
-  </ul>
-  <h2>検証環境</h2>
-  <ul>
-    <li>ホストOS：Windows10 Pro 2004</li>
-    <li>仮想マシン：VirtualBox 6.1.12</li>
-    <li>仮想OS：Kali Linux 64-Bit 2020.3</li>
-    <li>無線LANアダプタ：AWUS036ACH</li>
-    <li>AP：AirStation Pro WAPS-APG600H<br>
-      WiFi
-      <ul class="typenone">
-        <li>ssid：Air_Station_Pro1</li>
-        <ul class="typenone">
-          <li>プロトコル：802.11a/n</li>
-          <li>認証方式：WEP</li>
-          <li>暗号化キー：0102030405060708090a0b0c0d</li>
-          <li>チャンネル：60</li>
-          <li>周波数：5GHz</li>
-        </ul>
-        <li>ssid：Air_Station_Pro2</li>
-        <ul class="typenone">
-          <li>プロトコル：802.11b/g/n</li>
-          <li>認証方式：WPA-PSK</li>
-          <li>WPAタイプ：WPA2-PSK</li>
-          <li>暗号化方式：AES</li>
-          <li>事前共有キー：1234567890</li>
-          <li>チャンネル：12</li>
-          <li>周波数：2.4GHz</li>
-        </ul>
+  <div id="main">
+    <header>
+      <h1>無線LANに対する<wbr>攻撃の検証及び対策</h1>
+      <ul class="nomark">
+        <li><a href="wep.html"><img src="img/wepkey.gif" alt="WEPキーの解読"></a></li>
+        <li><a href="dic.html"><img src="img/dic.gif" alt="WPA2に対する辞書攻撃"></a></li>
+        <li><a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a></li>
       </ul>
-    </li>
-    <li>ルータ：Cisco 1812J</li>
-  </ul>
-  <div id="page_top"><a href="#"></a></div>
-  <script src="header-15.js"></script>
+      <ul class="nomark">
+        <li><a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a></li>
+        <li><a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a></li>
+        <li><a href="ex.html"><img src="img/ex.gif" alt="補足"></a></li>
+      </ul>
+      <ul class="nomark">
+        <li><img src="img/top.gif" alt="トップページ" style='opacity:0.3;'></li>
+      </ul>
+    </header>
+
+    <h2>検証を行った攻撃</h2>
+    <ul>
+      <li><a href="wep.html">WEPキーの解読</a></li>
+      <li><a href="dic.html">WPA2に対する辞書攻撃</a></li>
+      <li><a href="wi_fish.html">Wiフィッシングによる盗聴</a></li>
+      <li><a href="capt.html">キャプティブポータル</a></li>
+      <li><a href="wps.html">WPSの解析</a></li>
+    </ul>
+    <h2>検証環境</h2>
+    <ul>
+      <li>ホストOS：Windows10 Pro 2004</li>
+      <li>仮想マシン：VirtualBox 6.1.12</li>
+      <li>仮想OS：Kali Linux 64-Bit 2020.3</li>
+      <li>無線LANアダプタ：AWUS036ACH</li>
+      <li>AP：AirStation Pro WAPS-APG600H<br>
+        WiFi
+        <ul class="typenone">
+          <li>ssid：Air_Station_Pro1</li>
+          <ul class="typenone">
+            <li>プロトコル：802.11a/n</li>
+            <li>認証方式：WEP</li>
+            <li>暗号化キー：0102030405060708090a0b0c0d</li>
+            <li>チャンネル：60</li>
+            <li>周波数：5GHz</li>
+          </ul>
+          <li>ssid：Air_Station_Pro2</li>
+          <ul class="typenone">
+            <li>プロトコル：802.11b/g/n</li>
+            <li>認証方式：WPA-PSK</li>
+            <li>WPAタイプ：WPA2-PSK</li>
+            <li>暗号化方式：AES</li>
+            <li>事前共有キー：1234567890</li>
+            <li>チャンネル：12</li>
+            <li>周波数：2.4GHz</li>
+          </ul>
+        </ul>
+      </li>
+      <li>ルータ：Cisco 1812J</li>
+    </ul>
+    <div id="page_top"><a href="#"></a></div>
+    <script src="header-15.js"></script>
+  </div>
+  <footer>
+    <p>
+      <a href="wep.html">WEPキーの解読</a>|<wbr>
+      <a href="dic.html">WPA2に対する辞書攻撃</a>|<wbr>
+      <a href="wi_fish.html">Wiフィッシング</a>|<wbr>
+      <a href="capt.html">キャプティブポータル</a>|<wbr>
+      <a href="wps.html">WPSの解析</a>|<wbr>
+      <a href="ex.html">補足</a>|<wbr>
+      TOPページへ
+    </p>
+    <p style="font-size: 150%;">hosted by github</p>
+  </footer>
 </body>
 </html>

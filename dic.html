@@ -6,54 +6,67 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="img/favicon.ico">
-  <script src="jquery.min.js"></script>
+  <script src="jquery.min.js" type="text/javascript"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
 </head>
 <body>
-  <header>
-    <h1>無線LANに対する<wbr>攻撃の検証及び対策</h1>
-    <ul class="nomark">
-      <li><a href="wep.html"><img src="img/wepkey.gif" alt="WEPキーの解読"></a></li>
-      <li><img src="img/dic.gif" alt="WPA2に対する辞書攻撃" style='opacity:0.3;'></li>
-      <li><a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a></li>
-    </ul>
-    <ul class="nomark">
-      <li><a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a></li>
-      <li><a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a></li>
-      <li><a href="ex.html"><img src="img/ex.gif" alt="補足"></a></li>
-    </ul>
-    <ul class="nomark">
-      <li><a href="index.html"><img src="img/top.gif" alt="トップページ"></a></li>
-    </ul>
-  </header>
-  <h1>WPA2に対する辞書攻撃</h1>
-  <h2>検証内容</h2>
-  <p><!--検証内容ここから-->
-    認証方式をWPA-PSK、WPAタイプをWPA2-PSK、暗号化方式をAESにしたAPに対し、辞書攻撃を行い、事前共有キーを解析する。<br>
-    <a href="img/dic/key_analysis.png" data-lightbox="group"><img src="img/dic/key_analysis.png" width="300" alt="アクセスポイントのスキャン"></a><br>
-    具体的な手法としては、解析対象のAPと無線通信を行っている端末間のWPAshakehandを傍受し、それを元に解析を行う。<br>
-    今回は、検証時間短縮のため、すぐに思いつく設定しやすいであろうパスワードを類推した辞書ファイルを作成し、それで攻撃を行い、合致するキーが存在しない場合インターネットに存在する辞書ファイルで攻撃を行う。<br>
-    結果、<span style='font-weight: 600;'>「1234567890」はすぐに思いつく設定しやすいであろうパスワードのくくりに入っており、ほんの数秒足らずで解析することができた。</span><br>
-    <a href="img/dic/key_analysis_completed.png" data-lightbox="group"><img src="img/dic/key_analysis_completed.png" width="300" alt="辞書攻撃が完了しパスワードを取得"></a><br>
-    また、インターネットに存在する辞書ファイルを閲覧したところ、「1234567890」が存在することが分かっている。<br>
-    その辞書ファイルの55692行目に「1234567890」があり、検証に用いたツールは<span style='font-weight: 600;'>秒間約1,450個のキーを検証できる</span>ため、インターネットに存在する辞書ファイルで攻撃を行った場合、<span style='font-weight: 600;'>約38.4秒で解析が完了すると推測できる。</span><br>
-    <a href="img/dic/dictionary_data.png" data-lightbox="group"><img src="img/dic/dictionary_data.png" width="300" alt="辞書ファイル"></a><br>
-    今回は解析が完了した後、Wiresharkにwpa/pskキーを設定し、解析対象のAPと無線通信を行っている端末のhttp通信を復号し、postデータを吸い出した。<br>
-    <a href="img/dic/wpa2_result.png" data-lightbox="group"><img src="img/dic/wpa2_result.png" width="300" alt="postデータ吸出し"></a>
+  <div id="main">
+    <header>
+      <h1>無線LANに対する<wbr>攻撃の検証及び対策</h1>
+      <ul class="nomark">
+        <li><a href="wep.html"><img src="img/wepkey.gif" alt="WEPキーの解読"></a></li>
+        <li><img src="img/dic.gif" alt="WPA2に対する辞書攻撃" style='opacity:0.3;'></li>
+        <li><a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a></li>
+      </ul>
+      <ul class="nomark">
+        <li><a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a></li>
+        <li><a href="wps.html"><img src="img/wps.gif" alt="WPSの解析"></a></li>
+        <li><a href="ex.html"><img src="img/ex.gif" alt="補足"></a></li>
+      </ul>
+      <ul class="nomark">
+        <li><a href="index.html"><img src="img/top.gif" alt="トップページ"></a></li>
+      </ul>
+    </header>
+    <h1>WPA2に対する辞書攻撃　<wbr><a href="#steps" id="jump">対策へ</a></h1>
+    <h2>検証内容</h2>
+    <p><!--検証内容ここから-->
+      認証方式をWPA-PSK、WPAタイプをWPA2-PSK、暗号化方式をAESにしたAPに対し、辞書攻撃を行い、事前共有キーを解析する。<br>
+      <a href="img/dic/key_analysis.png" data-lightbox="group"><img src="img/dic/key_analysis.png" width="300" alt="アクセスポイントのスキャン"></a><br>
+      具体的な手法としては、解析対象のAPと無線通信を行っている端末間のWPAshakehandを傍受し、それを元に解析を行う。<br>
+      今回は、検証時間短縮のため、すぐに思いつく設定しやすいであろうパスワードを類推した辞書ファイルを作成し、それで攻撃を行い、合致するキーが存在しない場合インターネットに存在する辞書ファイルで攻撃を行う。<br>
+      結果、<span style='font-weight: 600;'>「1234567890」はすぐに思いつく設定しやすいであろうパスワードのくくりに入っており、ほんの数秒足らずで解析することができた。</span><br>
+      <a href="img/dic/key_analysis_completed.png" data-lightbox="group"><img src="img/dic/key_analysis_completed.png" width="300" alt="辞書攻撃が完了しパスワードを取得"></a><br>
+      また、インターネットに存在する辞書ファイルを閲覧したところ、「1234567890」が存在することが分かっている。<br>
+      その辞書ファイルの55692行目に「1234567890」があり、検証に用いたツールは<span style='font-weight: 600;'>秒間約1,450個のキーを検証できる</span>ため、インターネットに存在する辞書ファイルで攻撃を行った場合、<span style='font-weight: 600;'>約38.4秒で解析が完了すると推測できる。</span><br>
+      <a href="img/dic/dictionary_data.png" data-lightbox="group"><img src="img/dic/dictionary_data.png" width="300" alt="辞書ファイル"></a><br>
+      今回は解析が完了した後、Wiresharkにwpa/pskキーを設定し、解析対象のAPと無線通信を行っている端末のhttp通信を復号し、postデータを吸い出した。<br>
+      <a href="img/dic/wpa2_result.png" data-lightbox="group"><img src="img/dic/wpa2_result.png" width="300" alt="postデータ吸出し"></a>
 
-  </p><!--検証内容ここまで-->
-  <h2>対策</h2>
-  <p><!--対策ここから-->
-    <ul>
-      <li><span style='font-weight: 600;'>パスワードを意味のない文字列にする。</span></li>
-      <li><span style='font-weight: 600;'>単語を組み合わせて使うなら3つ以上連結する、単語の間にアンダーバー(_)を入れる等の工夫をする。</span><br>//ファイルを見た感じ2つ組み合わせはいっぱいあるけど3つはなかなかない印象。</li>
-      <li><span style='font-weight: 600;'>英単語の使用を避ける。</span><br>//解析に使われる辞書ファイルは英語圏のものが多い。</li>
-      <li><span style='font-weight: 600;'>名前+誕生日など自分の情報を使わない。</span><br>//APだったら別に問題ないような気もするが、表札とかで名前がわかる可能性はあるうえ、そもそもこのPCで1,450k/sがでるので名前+365通り程度は簡単に検証できる。</li>
-    </ul>
-  </p><!--対策ここまで-->
-  <a href="index.html">戻る</a>
-  <div id="page_top"><a href="#"></a></div>
-  <script src="header-15.js"></script>
+    </p><!--検証内容ここまで-->
+    <h2 id="steps">対策</h2>
+    <p><!--対策ここから-->
+      <ul>
+        <li><span style='font-weight: 600;'>パスワードを意味のない文字列にする。</span></li>
+        <li><span style='font-weight: 600;'>単語を組み合わせて使うなら3つ以上連結する、単語の間にアンダーバー(_)を入れる等の工夫をする。</span><br>//ファイルを見た感じ2つ組み合わせはいっぱいあるけど3つはなかなかない印象。</li>
+        <li><span style='font-weight: 600;'>英単語の使用を避ける。</span><br>//解析に使われる辞書ファイルは英語圏のものが多い。</li>
+        <li><span style='font-weight: 600;'>名前+誕生日など自分の情報を使わない。</span><br>//APだったら別に問題ないような気もするが、表札とかで名前がわかる可能性はあるうえ、そもそもこのPCで1,450k/sがでるので名前+365通り程度は簡単に検証できる。</li>
+      </ul>
+    </p><!--対策ここまで-->
+    <div id="page_top"><a href="#"></a></div>
+    <script src="header-15.js"></script>
+    </div>
+  <footer>
+    <p>
+      <a href="wep.html">WEPキーの解読</a>|<wbr>
+      WPA2に対する辞書攻撃|<wbr>
+      <a href="wi_fish.html">Wiフィッシング</a>|<wbr>
+      <a href="capt.html">キャプティブポータル</a>|<wbr>
+      <a href="wps.html">WPSの解析</a>|<wbr>
+      <a href="ex.html">補足</a>|<wbr>
+      <a href="index.html">TOPページへ</a>
+    </p>
+    <p style="font-size: 150%;">hosted by github</p>
+  </footer>
 </body>
 </html>

@@ -11,45 +11,58 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
 </head>
 <body>
-  <header>
-    <h1>無線LANに対する<wbr>攻撃の検証及び対策</h1>
-    <ul class="nomark">
-      <li><a href="wep.html"><img src="img/wepkey.gif" alt="WEPキーの解読"></a></li>
-      <li><a href="dic.html"><img src="img/dic.gif" alt="WPA2に対する辞書攻撃"></a></li>
-      <li><a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a></li>
-    </ul>
-    <ul class="nomark">
-      <li><a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a></li>
-      <li><img src="img/wps.gif" alt="WPSの解析" style='opacity:0.3;'></li>
-      <li><a href="ex.html"><img src="img/ex.gif" alt="補足"></a></li>
-    </ul>
-    <ul class="nomark">
-      <li><a href="index.html"><img src="img/top.gif" alt="トップページ"></a></li>
-    </ul>
-  </header>
-  <h1>WPSの解析</h1>
-  <h2>検証内容</h2>
-  <p><!--検証内容ここから-->
-    認証方式をWPA-PSK、WPAタイプをWPA2-PSK、暗号化方式をAESにしたAPに対し、WPS Pixie-Dust攻撃を行い、事前共有キーを解析する。<br>
-    具体的な手法としては、検証用APのWPS機能を有効化し、wifite2 2.5.5を用いて解析を行う。<br>
-    <span style='font-weight: 600;'>解析は10秒程度</span>で完了した。<br>
-    <a href="img/wps/pixie_dust_attack.png" data-lightbox="group"><img src="img/wps/pixie_dust_attack.png" width="300" alt="wps解析完了"></a><br>
-    念のため、WPS PINと事前共有キーを変更(事前共有キーはランダムな数字12桁)してもう一度解析を行ったが、変わらず解析は10秒程度で完了した。<br>
-    <a href="img/wps/pixie_dust_attack2.png" data-lightbox="group"><img src="img/wps/pixie_dust_attack2.png" width="300" alt="wps解析完了2"></a><br>
-    なお、今回使用したAPの<span style='font-weight: 600;'>WPSのバージョンは2.0</span>である。<br>
-    <a href="img/wps/wps_version.png" data-lightbox="group"><img src="img/wps/wps_version.png" width="300" alt="WPSバージョン"></a><br>
-    今回は解析が完了した後、Wiresharkにwpa/pskキーを設定し、解析対象のAPと無線通信を行っている端末のhttp通信を復号し、postデータを吸い出した。
-  </p><!--検証内容ここまで-->
-  <h2>対策</h2>
-  <p><!--対策ここから-->
-    <ul><li><span style='font-weight: 600;'>
-      WPS機能をオフにする<br>
-      //ルーターの設定の仕方は機種によって異なります。<br>
-      説明書を見ながら設定しましょう。
-    </span></li></ul>
-  </p><!--対策ここまで-->
-  <a href="index.html">戻る</a>
-  <div id="page_top"><a href="#"></a></div>
-  <script src="header-15.js"></script>
+  <div id="main">
+    <header>
+      <h1>無線LANに対する<wbr>攻撃の検証及び対策</h1>
+      <ul class="nomark">
+        <li><a href="wep.html"><img src="img/wepkey.gif" alt="WEPキーの解読"></a></li>
+        <li><a href="dic.html"><img src="img/dic.gif" alt="WPA2に対する辞書攻撃"></a></li>
+        <li><a href="wi_fish.html"><img src="img/wif.gif" alt="Wiフィッシングによる盗聴"></a></li>
+      </ul>
+      <ul class="nomark">
+        <li><a href="capt.html"><img src="img/capt.gif" alt="キャプティブポータル"></a></li>
+        <li><img src="img/wps.gif" alt="WPSの解析" style='opacity:0.3;'></li>
+        <li><a href="ex.html"><img src="img/ex.gif" alt="補足"></a></li>
+      </ul>
+      <ul class="nomark">
+        <li><a href="index.html"><img src="img/top.gif" alt="トップページ"></a></li>
+      </ul>
+    </header>
+    <h1>WPSの解析　<wbr><a href="#steps" id="jump">対策へ</a></h1>
+    <h2>検証内容</h2>
+    <p><!--検証内容ここから-->
+      認証方式をWPA-PSK、WPAタイプをWPA2-PSK、暗号化方式をAESにしたAPに対し、WPS Pixie-Dust攻撃を行い、事前共有キーを解析する。<br>
+      具体的な手法としては、検証用APのWPS機能を有効化し、wifite2 2.5.5を用いて解析を行う。<br>
+      <span style='font-weight: 600;'>解析は10秒程度</span>で完了した。<br>
+      <a href="img/wps/pixie_dust_attack.png" data-lightbox="group"><img src="img/wps/pixie_dust_attack.png" width="300" alt="wps解析完了"></a><br>
+      念のため、WPS PINと事前共有キーを変更(事前共有キーはランダムな数字12桁)してもう一度解析を行ったが、変わらず解析は10秒程度で完了した。<br>
+      <a href="img/wps/pixie_dust_attack2.png" data-lightbox="group"><img src="img/wps/pixie_dust_attack2.png" width="300" alt="wps解析完了2"></a><br>
+      なお、今回使用したAPの<span style='font-weight: 600;'>WPSのバージョンは2.0</span>である。<br>
+      <a href="img/wps/wps_version.png" data-lightbox="group"><img src="img/wps/wps_version.png" width="300" alt="WPSバージョン"></a><br>
+      今回は解析が完了した後、Wiresharkにwpa/pskキーを設定し、解析対象のAPと無線通信を行っている端末のhttp通信を復号し、postデータを吸い出した。
+    </p><!--検証内容ここまで-->
+    <h2 id="steps">対策</h2>
+    <p><!--対策ここから-->
+      <ul><li><span style='font-weight: 600;'>
+        WPS機能をオフにする<br>
+        //ルーターの設定の仕方は機種によって異なります。<br>
+        説明書を見ながら設定しましょう。
+      </span></li></ul>
+    </p><!--対策ここまで-->
+    <div id="page_top"><a href="#"></a></div>
+    <script src="header-15.js"></script>
+  </div>
+  <footer>
+    <p>
+      <a href="wep.html">WEPキーの解読</a>|<wbr>
+      <a href="dic.html">WPA2に対する辞書攻撃</a>|<wbr>
+      <a href="wi_fish.html">Wiフィッシング</a>|<wbr>
+      <a href="capt.html">キャプティブポータル</a>|<wbr>
+      WPSの解析|<wbr>
+      <a href="ex.html">補足</a>|<wbr>
+      <a href="index.html">TOPページへ</a>
+    </p>
+    <p style="font-size: 150%;">hosted by github</p>
+  </footer>
 </body>
 </html>

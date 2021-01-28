@@ -1,12 +1,19 @@
 body {
-  margin: 4px 10px;
+  margin: 0;
   background-image:url(./img/wallpaper.png);
+}
+#main {
+  margin: 4px 8px 0 10px;
 }
 
 h1, h2 {
   margin-top: 16px;
   margin-bottom: 0;
   white-space: nowrap;
+}
+h1 a {
+  text-decoration: none;
+  font-size: 50%;
 }
 li {
   margin-bottom: 4px;
@@ -38,6 +45,22 @@ header {
   text-align: center;
   background-color: #CCFFCC;
   min-width: 290px;
+}
+footer {
+  margin: 0;
+  padding: 20px 0;
+  width: 100%;
+  color: #888888;
+  background-color: #222222;
+  text-align: center;
+  white-space: nowrap;
+}
+footer p {
+  margin: 0;
+}
+footer a {
+  color: #888888;
+  text-decoration: none;
 }
 
 #page_top{
