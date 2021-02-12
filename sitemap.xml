@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!--  created with free sitemap generation system www.sitemapxml.jp  --> 
+<url>
+  <loc>https://ryudo43.github.io/</loc>
+  <priority>1.0</priority>
+  <changefreq>never</changefreq>
+</url>
+<url>
+  <loc>https://ryudo43.github.io/wep.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-02-08T10:00:51+09:00</lastmod>
+  <changefreq>never</changefreq>
+</url>
+<url>
+  <loc>https://ryudo43.github.io/dic.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-02-08T10:00:51+09:00</lastmod>
+  <changefreq>never</changefreq>
+</url>
+<url>
+  <loc>https://ryudo43.github.io/wi_fish.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-02-08T10:00:51+09:00</lastmod>
+  <changefreq>never</changefreq>
+</url>
+<url>
+  <loc>https://ryudo43.github.io/capt.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-02-08T10:00:51+09:00</lastmod>
+  <changefreq>never</changefreq>
+</url>
+<url>
+  <loc>https://ryudo43.github.io/wps.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-02-08T10:00:51+09:00</lastmod>
+  <changefreq>never</changefreq>
+</url>
+<url>
+  <loc>https://ryudo43.github.io/ex.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-02-08T10:00:51+09:00</lastmod>
+  <changefreq>never</changefreq>
+</url>
+<url>
+  <loc>https://ryudo43.github.io/index.html</loc>
+  <priority>0.7</priority>
+  <lastmod>2021-02-08T10:00:51+09:00</lastmod>
+  <changefreq>never</changefreq>
+</url>
+
+</urlset>
